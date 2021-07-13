@@ -37,7 +37,7 @@ public class Main {
                 list.add(pro);
             } else if (ch == 'u') {
                 System.out.print("Manufacture date (DD/MM/YYY): ");
-                Date manufactureDate = sc.nextLine();
+
             }
 
         }
