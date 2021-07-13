@@ -25,6 +25,9 @@ public class SavingsAccount extends Account {
         balance += balance * interestRate; // saldo += saldo * taxa de juros
     }
 
-
-
+    @Override
+    public void withdraw(double amount) {
+        balance -= amount;
+    }
+    
 }
