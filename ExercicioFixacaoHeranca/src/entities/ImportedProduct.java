@@ -2,17 +2,16 @@ package entities;
 
 public class ImportedProduct extends Product {
 
+    // ATRIBUTOS
     private Double customsFee;
 
-    public ImportedProduct() {
-        super();
-    }
-
+    // CONSTRUTOR
     public ImportedProduct(String name, Double price, Double customsFee) {
         super(name, price);
         this.customsFee = customsFee;
     }
 
+    // GETTERS E SETTERS
     public Double getCustomsFee() {
         return customsFee;
     }
@@ -21,6 +20,7 @@ public class ImportedProduct extends Product {
         this.customsFee = customsFee;
     }
 
+    // MÉTODOS
     public Double totalPrice() {
         return getPrice() + customsFee;
     }
