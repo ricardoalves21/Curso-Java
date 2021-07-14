@@ -2,17 +2,17 @@ package entities;
 
 public class Product {
 
+    // ATRIBUTOS
     private String name;
     private Double price;
 
-    public Product() {
-    }
-
+    // CONSTRUTOR
     public Product(String name, Double price) {
         this.name = name;
         this.price = price;
     }
 
+    // GETTERS E SETTERS
     public String getName() {
         return name;
     }
@@ -29,6 +29,7 @@ public class Product {
         this.price = price;
     }
 
+    // MÉTODOS
     public String priceTag() {
         return name
                     + " $ "
