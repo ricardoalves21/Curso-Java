@@ -2,29 +2,40 @@ package entidades;
 
 public class Gerente extends Colaborador {
 
-    // ATRIBUTOS
-    private float salario;
-
     // CONSTRUTOR
     public Gerente(String nome, String cargo, int idade, float salario) {
         super(nome, cargo, idade, salario);
-        this.salario = salario;
     }
 
-    // GETTERS E SETTERS
-    @Override
-    public float getSalario() {
-        return salario;
+    public Gerente() {
+        super();
     }
 
-    @Override
-    public void setSalario(float salario) {
-        this.salario = salario;
+    public Gerente(String nome, String cargo, int idade) {
+        super(nome, cargo, idade);
     }
 
     // MÉTODOS
     public void receberSalario() {
-        this.setSalario(this.getSalario() * 5);
+        this.setSalario(getSalario() * 5);
+    }
+
+    @Override
+    public String dadosColaborador() {
+        return
+                "Nome: "
+                        + getNome()
+                        + "\n"
+                        + "Cargo: "
+                        + getCargo()
+                        + "\n"
+                        + "Idade: "
+                        + getIdade()
+                        + "\n"
+                        + "Salário: "
+                        + getSalario()
+                        + "\n";
+
     }
 
 }

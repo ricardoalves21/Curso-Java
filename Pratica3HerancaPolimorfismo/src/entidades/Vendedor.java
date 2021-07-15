@@ -13,6 +13,16 @@ public class Vendedor extends Colaborador {
         this.venda = venda;
     }
 
+    public Vendedor(String nome, String cargo, int idade) {
+        super(nome, cargo, idade);
+        this.comissao = comissao;
+        this.venda = venda;
+    }
+
+    public Vendedor() {
+        super();
+    }
+
     // GETTERS E SETTERS
     public float getComissao() {
         return comissao;
@@ -31,8 +41,26 @@ public class Vendedor extends Colaborador {
     }
 
     // MÉTODOS
-    public float salariComissao() {
-        return venda * comissao;
+    public void salarioComissao() {
+        this.setSalario(getSalario() + venda * comissao);
+    }
+
+    @Override
+    public String dadosColaborador() {
+        return
+                "Nome: "
+                        + getNome()
+                        + "\n"
+                        + "Cargo: "
+                        + getCargo()
+                        + "\n"
+                        + "Idade: "
+                        + getIdade()
+                        + "\n"
+                        + "Salário: "
+                        + getSalario()
+                        + "\n";
+
     }
 
 }

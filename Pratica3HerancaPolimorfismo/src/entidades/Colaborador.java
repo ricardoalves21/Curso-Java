@@ -1,19 +1,28 @@
 package entidades;
 
-public abstract class Colaborador {
+public class Colaborador {
 
     // ATRIBUTOS
     private String nome;
     private String cargo;
     private int idade;
-    private float salario;
+    private float salario = 1500;
 
     // CONSTRUTOR
     public Colaborador(String nome, String cargo, int idade, float salario) {
         this.nome = nome;
         this.cargo = cargo;
         this.idade = idade;
-        this.salario = 1500;
+        this.salario = salario;
+    }
+
+    public Colaborador(String nome, String cargo, int idade) {
+        this.nome = nome;
+        this.cargo = cargo;
+        this.idade = idade;
+    }
+
+    public Colaborador(){
     }
 
     // GETTERS E SETTERS
@@ -47,6 +56,24 @@ public abstract class Colaborador {
 
     public void setSalario(float salario) {
         this.salario = salario;
+    }
+
+    // METODOS
+    public String dadosColaborador() {
+        return
+                "Nome: "
+                + nome
+                + "\n"
+                + "Cargo: "
+                + cargo
+                + "\n"
+                + "Idade: "
+                + idade
+                + "\n"
+                + "Salário: "
+                + this.getSalario()
+                + "\n";
+
     }
 
 }
