@@ -7,10 +7,8 @@ public class Atendente extends Colaborador {
     private float grauSatisfacao;
 
     // CONSTRUTOR
-    public Atendente(String nome, String cargo, int idade, float salario) {
-        super(nome, cargo, idade, salario);
-        this.qtdAtendimento = qtdAtendimento;
-        this.grauSatisfacao = grauSatisfacao;
+    public Atendente() {
+        super();
     }
 
     // GETTERS E SETTERS
