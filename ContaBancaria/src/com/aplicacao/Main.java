@@ -1,7 +1,6 @@
 package com.aplicacao;
 
 import entidades.Conta;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -14,31 +13,44 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         List<Conta> list = new ArrayList<>();
+        Conta cliente = new Conta();
 
-        System.out.println();
-        System.out.println("xxxxxxxxxxxxxxxxxxxx CONTA BANCÁRIA xxxxxxxxxxxxxxxxxxxx");
+        char resp;
 
-        System.out.print("Titular: ");
-        String titular = sc.next();
+        do {
+            System.out.println();
+            System.out.println("xxxxxxxxxxxxxxxxxxxx CONTA BANCÁRIA xxxxxxxxxxxxxxxxxxxx");
 
-        System.out.print("Agência: ");
-        int agencia = sc.nextInt();
+            System.out.print("Titular: ");
+            cliente.setTitular(sc.next());
 
-        System.out.print("Conta: ");
-        String conta = sc.next();
+            System.out.print("Agência: ");
+            cliente.setAgencia(sc.nextInt());
 
-        System.out.print("Qual operação deseja fazer (Depósito ou Saque [d/s])? ");
-        char ch = sc.next().charAt(0);
+            System.out.print("Conta: ");
+            cliente.setConta(sc.next());
 
-        if (ch == 'd') {
-            System.out.print("Qual o valor do depósito? ");
-            Double valor = sc.nextDouble();
-            list.add(new Conta(titular, agencia, conta, valor));
-        } else if (ch == 's') {
-            System.out.print("Qual o valor do saque? ");
-            Double valor = sc.nextDouble();
-            list.add(new Conta(titular, agencia, conta, valor));
-        }
+            System.out.print("Qual operação deseja fazer (Depósito ou Saque [d/s])? ");
+            char ch = sc.next().charAt(0);
+
+            if (ch == 'd') {
+                System.out.print("Qual o valor do depósito? ");
+                cliente.setDeposito(sc.nextFloat());
+                cliente.depositar();
+            } else if (ch == 's') {
+                System.out.print("Qual o valor do saque? ");
+                cliente.setSaque(sc.nextFloat());
+                cliente.sacar();
+            }
+
+            System.out.print("Deseja realizar mais alguma operação (s/n)? ");
+            resp = sc.next().charAt(0);
+        } while (resp == 's');
+
+
+
+
+        list.add(new Conta(cliente.getTitular(), cliente.getAgencia(), cliente.getConta(), cliente.getSaldo()));
 
 
         for (Conta cta : list) {

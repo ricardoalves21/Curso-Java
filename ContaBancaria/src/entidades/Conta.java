@@ -6,10 +6,16 @@ public class Conta {
     private String titular;
     private int agencia;
     private String conta;
-    private Double saldo;
+    private float saldo;
+    private float saque;
+    private float deposito;
 
     // CONSTRUTOR
-    public Conta(String titular, int agencia, String conta, Double saldo) {
+    public Conta() {
+        this.setSaldo(0);
+    }
+
+    public Conta(String titular, int agencia, String conta, float saldo) {
         this.titular = titular;
         this.agencia = agencia;
         this.conta = conta;
@@ -41,29 +47,41 @@ public class Conta {
         this.conta = conta;
     }
 
-    public Double getSaldo() {
+    public float getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Double saldo) {
+    public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
 
+    public float getSaque() {
+        return saque;
+    }
+
+    public void setSaque(float saque) {
+        this.saque = saque;
+    }
+
+    public float getDeposito() {
+        return deposito;
+    }
+
+    public void setDeposito(float deposito) {
+        this.deposito = deposito;
+    }
+
     // METODOS
-    public Double deposito(Double valor) {
-        return saldo += valor;
+    public void depositar() {
+        this.setSaldo(this.getSaldo() + this.getDeposito());
     }
 
-    public void saque(Double valor) {
-        if (valor > saldo) {
-            System.out.println("Saldo insuficiente!");
+    public void sacar() {
+        if (this.getSaldo() >= this.getSaque()) {
+            this.setSaldo(this.getSaldo() - this.getSaque());
         } else {
-            saldo -= valor;
+            System.out.println("Saldo insuficiente!");
         }
-    }
-
-    public Double saldoFinal() {
-        return saldo;
     }
 
     public String dadosConta() {
