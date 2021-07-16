@@ -4,7 +4,6 @@ import entidades.Atendente;
 import entidades.Colaborador;
 import entidades.Gerente;
 import entidades.Vendedor;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -16,7 +15,12 @@ public class Main {
 
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        List<Colaborador> list = new ArrayList<>();
+
+        ArrayList<Colaborador>  colab = new ArrayList<>();
+        ArrayList<Gerente>      ger = new ArrayList<>();
+        ArrayList<Vendedor>     ven = new ArrayList<>();
+        ArrayList<Atendente>    atend = new ArrayList<>();
+
         Gerente     colab1 = new Gerente();
         Vendedor    colab2 = new Vendedor();
         Atendente   colab3 = new Atendente();
@@ -27,11 +31,14 @@ public class Main {
 
         char resp;
         int cont = 0;
+        char perfil;
         do {
             System.out.print("Qual seu perfil (Gerente/Vendedor/Atendente [g/v/a])? ");
-            char ch = sc.next().charAt(0);
+            perfil = sc.next().charAt(0);
 
-            if (ch == 'g') {
+            if (perfil == 'g') {
+
+                colab1.setPerfil(perfil);
 
                 System.out.print("Nome: ");
                 colab1.setNome(sc.next());
@@ -44,10 +51,12 @@ public class Main {
 
                 colab1.receberSalario();
 
-                list.add(new Gerente(colab1.getNome(), colab1.getCargo(), colab1.getIdade()));
+                ger.add(new Gerente(colab1.getNome(), colab1.getCargo(), colab1.getIdade(), colab1.getSalario()));
             }
 
-            if (ch == 'v') {
+            if (perfil == 'v') {
+
+                colab2.setPerfil(perfil);
 
                 System.out.print("Nome: ");
                 colab2.setNome(sc.next());
@@ -66,10 +75,12 @@ public class Main {
 
                 colab2.salarioComissao();
 
-                list.add(new Vendedor(colab2.getNome(), colab2.getCargo(), colab2.getIdade()));
+                ven.add(new Vendedor(colab2.getNome(), colab2.getCargo(), colab2.getIdade(), colab2.getSalario()));
             }
 
-            if (ch == 'a') {
+            if (perfil == 'a') {
+
+                colab3.setPerfil(perfil);
 
                 System.out.print("Nome: ");
                 colab3.setNome(sc.next());
@@ -88,21 +99,32 @@ public class Main {
 
                 colab3.salarioAtendente();
 
-                list.add(new Atendente(colab3.getNome(), colab3.getCargo(), colab3.getIdade()));
+                atend.add(new Atendente(colab3.getNome(), colab3.getCargo(), colab3.getIdade(), colab3.getSalario()));
             }
 
             cont++;
             System.out.print("Continuar lançando (Sim/Não [s/n]? ");
             resp = sc.next().charAt(0);
+            System.out.println();
 
         } while (resp == 's');
 
-        System.out.println(cont);
-
-        for (Colaborador dados : list) {
+        for (Gerente e : ger) {
             System.out.println();
             System.out.println("XXXXXXXXXX DADOS DO COLABORADOR XXXXXXXXXX");
-            System.out.println(dados.dadosColaborador());
+                System.out.println(e.dadosColaborador());
+        }
+
+        for (Vendedor e : ven) {
+            System.out.println();
+            System.out.println("XXXXXXXXXX DADOS DO COLABORADOR XXXXXXXXXX");
+            System.out.println(e.dadosColaborador());
+        }
+
+        for (Atendente e : atend) {
+            System.out.println();
+            System.out.println("XXXXXXXXXX DADOS DO COLABORADOR XXXXXXXXXX");
+            System.out.println(e.dadosColaborador());
         }
     }
 }

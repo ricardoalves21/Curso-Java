@@ -6,6 +6,7 @@ public class Colaborador {
     private String nome;
     private String cargo;
     private int idade;
+    private char perfil;
     private float salario = 1500;
 
     // CONSTRUTOR
@@ -56,6 +57,14 @@ public class Colaborador {
 
     public void setSalario(float salario) {
         this.salario = salario;
+    }
+
+    public char getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(char perfil) {
+        this.perfil = perfil;
     }
 
     // METODOS
