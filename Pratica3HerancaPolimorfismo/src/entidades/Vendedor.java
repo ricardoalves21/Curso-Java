@@ -42,25 +42,23 @@ public class Vendedor extends Colaborador {
 
     // MÉTODOS
     public void salarioComissao() {
-        this.setSalario(getSalario() + venda * comissao);
+        this.setSalario(getSalario() + (venda * comissao));
     }
 
     @Override
     public String dadosColaborador() {
         return
-                "Nome: "
-                        + getNome()
-                        + "\n"
-                        + "Cargo: "
-                        + getCargo()
-                        + "\n"
-                        + "Idade: "
-                        + getIdade()
-                        + "\n"
-                        + "Salário: "
-                        + getSalario()
-                        + "\n";
-
+            "Nome: "
+            + getNome()
+            + "\n"
+            + "Cargo: "
+            + getCargo()
+            + "\n"
+            + "Idade: "
+            + getIdade()
+            + "\n"
+            + "Salário: "
+            + getSalario()
+            + "\n";
     }
-
 }

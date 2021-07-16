@@ -26,7 +26,7 @@ public class Main {
         System.out.println();
 
         char resp;
-
+        int cont = 0;
         do {
             System.out.print("Qual seu perfil (Gerente/Vendedor/Atendente [g/v/a])? ");
             char ch = sc.next().charAt(0);
@@ -69,17 +69,40 @@ public class Main {
                 list.add(new Vendedor(colab2.getNome(), colab2.getCargo(), colab2.getIdade()));
             }
 
-            System.out.println();
+            if (ch == 'a') {
+
+                System.out.print("Nome: ");
+                colab3.setNome(sc.next());
+
+                System.out.print("Cargo: ");
+                colab3.setCargo(sc.next());
+
+                System.out.print("Idade: ");
+                colab3.setIdade(sc.nextInt());
+
+                System.out.print("Quantidade de atendimentos: ");
+                colab3.setQtdAtendimento(sc.nextFloat());
+
+                System.out.print("Grau de satisfação: ");
+                colab3.setGrauSatisfacao(sc.nextFloat());
+
+                colab3.salarioAtendente();
+
+                list.add(new Atendente(colab3.getNome(), colab3.getCargo(), colab3.getIdade()));
+            }
+
+            cont++;
             System.out.print("Continuar lançando (Sim/Não [s/n]? ");
             resp = sc.next().charAt(0);
 
         } while (resp == 's');
 
+        System.out.println(cont);
+
         for (Colaborador dados : list) {
             System.out.println();
             System.out.println("XXXXXXXXXX DADOS DO COLABORADOR XXXXXXXXXX");
-            System.out.println(colab2.dadosColaborador());
+            System.out.println(dados.dadosColaborador());
         }
-
     }
 }
