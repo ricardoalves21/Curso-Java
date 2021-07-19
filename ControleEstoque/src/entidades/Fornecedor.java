@@ -1,30 +1,31 @@
 package entidades;
 
-public class Fornecedor {
+public class Fornecedor extends Produto {
 
     // ATRIBUTOS
-    private int codFornecedor;
     private String nomeFornecedor;
-    private int saldoFornecedor;
     private int vendaFornecedor;
+    private int saldoFornecedor = 100;
+
 
     // CONSTRUTOR
-    public Fornecedor(int codFornecedor, String nomeFornecedor, int saldoFornecedor, int vendaFornecedor) {
-        this.codFornecedor = codFornecedor;
+    public Fornecedor(String nomeFornecedor, int vendaFornecedor, int saldoFornecedor) {
         this.nomeFornecedor = nomeFornecedor;
-        this.saldoFornecedor = saldoFornecedor;
         this.vendaFornecedor = vendaFornecedor;
+        this.saldoFornecedor = saldoFornecedor;
+    }
+
+    public Fornecedor() {
+    }
+
+    public Fornecedor(String descricao, float preco, int estoque, int compra, int venda, String nomeFornecedor, int vendaFornecedor, int saldoFornecedor) {
+        super(descricao, preco, estoque, compra, venda);
+        this.nomeFornecedor = nomeFornecedor;
+        this.vendaFornecedor = vendaFornecedor;
+        this.saldoFornecedor = saldoFornecedor;
     }
 
     // GETTERS E SETTERS
-    public int getCodFornecedor() {
-        return codFornecedor;
-    }
-
-    public void setCodFornecedor(int codFornecedor) {
-        this.codFornecedor = codFornecedor;
-    }
-
     public String getNomeFornecedor() {
         return nomeFornecedor;
     }
@@ -33,25 +34,33 @@ public class Fornecedor {
         this.nomeFornecedor = nomeFornecedor;
     }
 
-    public int getSaldoFornecedor() {
-        return saldoFornecedor;
-    }
-
-    public void setSaldoFornecedor(int saldoFornecedor) {
-        this.saldoFornecedor = saldoFornecedor;
-    }
-
     public int getVendaFornecedor() {
         return vendaFornecedor;
     }
 
-    public void setVendaFornecedor(int compraFornecedor) {
-        this.vendaFornecedor = compraFornecedor;
+    public void setVendaFornecedor(int vendaFornecedor) {
+        this.vendaFornecedor = vendaFornecedor;
+    }
+
+    public int getSaldoFornecedor() {
+        return saldoFornecedor;
     }
 
     // MÉTODOS
     public void venderProduto() {
         saldoFornecedor -= vendaFornecedor;
+    }
+
+    public String dadosFornecedor() {
+        return "Fornecedor: "
+                + getNomeFornecedor()
+                + "\n"
+                + "Quantidade última venda: "
+                + getVendaFornecedor()
+                + "\n"
+                + "Saldo do Fornecedor: "
+                + getSaldoFornecedor()
+                + "\n";
     }
 }
 
