@@ -1,17 +1,27 @@
 package entidades;
 
-public class Cliente {
+public class Cliente extends Produto {
 
     // ATRIBUTOS
     private String nomeCliente;
-    private int saldoCliente;
     private int compraCliente;
+    private int saldoCliente;
 
     // CONSTRUTOR
-    public Cliente(String nomeCliente, int saldoCliente, int compraCliente) {
+    public Cliente(String nomeCliente, int compraCliente, int saldoCliente) {
         this.nomeCliente = nomeCliente;
-        this.saldoCliente = saldoCliente;
         this.compraCliente = compraCliente;
+        this.saldoCliente = saldoCliente;
+    }
+
+    public Cliente() {
+    }
+
+    public Cliente(String descricao, float preco, int estoque, int compra, int venda, String nomeCliente, int compraCliente, int saldoCliente) {
+        super(descricao, preco, estoque, compra, venda);
+        this.nomeCliente = nomeCliente;
+        this.compraCliente = compraCliente;
+        this.saldoCliente = saldoCliente;
     }
 
     // GETTERS E SETTERS
@@ -23,14 +33,6 @@ public class Cliente {
         this.nomeCliente = nomeCliente;
     }
 
-    public int getSaldoCliente() {
-        return saldoCliente;
-    }
-
-    public void setSaldoCliente(int saldoCliente) {
-        this.saldoCliente = saldoCliente;
-    }
-
     public int getCompraCliente() {
         return compraCliente;
     }
@@ -39,8 +41,25 @@ public class Cliente {
         this.compraCliente = compraCliente;
     }
 
+    public int getSaldoCliente() {
+        return saldoCliente;
+    }
+
+
     // MÉTODOS
-    public void comprarProduto() {
+    public  void saldoTotalCliente() {
         saldoCliente += compraCliente;
+    }
+
+    public String dadosCliente() {
+        return "Cliente: "
+                + getNomeCliente()
+                + "\n"
+                + "Quantidade última compra: "
+                + getCompraCliente()
+                + "\n"
+                + "Saldo do Cliente: "
+                + getSaldoCliente()
+                + "\n";
     }
 }

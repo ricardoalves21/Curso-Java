@@ -47,10 +47,6 @@ public class Produto {
         return estoque;
     }
 
-    public void setEstoque(int estoque) {
-        this.estoque = estoque;
-    }
-
     public int getCompra() {
         return compra;
     }
