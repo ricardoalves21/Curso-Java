@@ -1,10 +1,12 @@
 package model.entities;
 
+import model.exceptions.DomainException;
+
 public class Account {
 
     // ATRITUBOS
     private Integer number;  // numero
-    private String holder;  //  suporte
+    private String holder;  //  titular
     private Double balance;  // saldo
     private Double withdrawLimit;  // limite de saque
 
@@ -14,6 +16,9 @@ public class Account {
         this.holder = holder;
         this.balance = balance;
         this.withdrawLimit = withdrawLimit;
+    }
+
+    public Account() {
     }
 
     // GETTERS E SETTERS
@@ -51,10 +56,22 @@ public class Account {
 
     // MÉTODOS
     public void deposit(Double amount) {  // deposito
+        balance += amount;
     }
 
-    public void withdraw(Double amount) {  // saque
+    public void withdraw (Double amount) throws DomainException {  // saque
+        if (amount > withdrawLimit) {
+            throw new DomainException("The amount exceeds withdraw limit");
+        } else if (amount > balance) {
+            throw new DomainException("Not enough balance");
+        } else {
+            balance -= amount;
+        }
+    }
 
+    public String newBalance() {
+        return "New balance: "
+                + String.format("%.2f", balance);
     }
 
 }
