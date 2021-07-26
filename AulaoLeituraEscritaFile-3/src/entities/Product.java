@@ -49,11 +49,12 @@ public class Product implements Serializable {  // permite que meu objeto do tip
 
     @Override
     public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                ", total=" + total() +
-                '}';
+        return  name
+                + "   "
+                + String.format("%.2f", price)
+                + "   "
+                + quantity
+                + "   "
+                + String.format("%.2f", total());
     }
 }
