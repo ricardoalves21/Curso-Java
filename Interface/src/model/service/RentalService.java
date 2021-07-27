@@ -10,10 +10,10 @@ public class RentalService {  // serviço de aluguel
     private Double pricePerHour;  // preço por hora
 
     // ASSOCIAÇÕES DE CLASSE
-    private BrazilTaxService taxService;  // imposto pelo serviço
+    private TaxService taxService;  // imposto pelo serviço
 
     // CONSTRUTOR
-    public RentalService(Double pricePerDay, Double pricePerHour, BrazilTaxService taxService) {
+    public RentalService(Double pricePerDay, Double pricePerHour, TaxService taxService) {
         this.pricePerDay = pricePerDay;
         this.pricePerHour = pricePerHour;
         this.taxService = taxService;
