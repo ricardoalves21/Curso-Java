@@ -2,20 +2,14 @@ package model.entities;
 
 public class Vehicle {  // veículo
 
+    // ATRIBUTOS
     private String model;  // modelo
 
+    // CONSTRUTOR
     public Vehicle(){
     }
 
     public Vehicle(String model) {
-        this.model = model;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
         this.model = model;
     }
 }

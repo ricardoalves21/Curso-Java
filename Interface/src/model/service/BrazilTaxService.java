@@ -2,6 +2,7 @@ package model.service;
 
 public class BrazilTaxService {  // imposto brasileiro
 
+    // MÉTODOS
     public double tax(double amount) {
         if (amount <= 100.0) {
             return amount * 0.2;
@@ -9,6 +10,4 @@ public class BrazilTaxService {  // imposto brasileiro
             return amount * 0.15;
         }
     }
-
-
 }
