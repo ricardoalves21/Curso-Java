@@ -2,9 +2,11 @@ package model.entities;
 
 public class Invoice {  // fatura
 
+    // ATRIBUTOS
     private Double basicPayment; // pagamento básico
     private Double tax;  // imposto
 
+    // CONSTRUTOR
     public Invoice() {
     }
 
@@ -13,22 +15,16 @@ public class Invoice {  // fatura
         this.tax = tax;
     }
 
+    // GETTERS E SETTERS
     public Double getBasicPayment() {
         return basicPayment;
-    }
-
-    public void setBasicPayment(Double basicPayment) {
-        this.basicPayment = basicPayment;
     }
 
     public Double getTax() {
         return tax;
     }
 
-    public void setTax(Double tax) {
-        this.tax = tax;
-    }
-
+    // MÉTODOS
     public Double getTotalPayment() {
         return getBasicPayment() + getTax();
     }
