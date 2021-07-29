@@ -1,6 +1,14 @@
 package Service;
 
+import java.text.ParseException;
+import java.util.Date;
+
 public interface ServicoPagamento {
 
-    double calcularParcela(Double valorTotal, Double qtdParcelas, int numParc);
+    Double calcularParcela(Double valorTotal, Double qtdParcelas);
+
+    Date vencParcelas(Date dataContrato, Double qtdParcelas) throws ParseException {
+
+    }
+
 }

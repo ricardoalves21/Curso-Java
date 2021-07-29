@@ -28,6 +28,11 @@ public class Contrato {
         this.dataContrato = data;
     }
 
+    public Contrato(Integer numero, Date data, Double valorContrato) {
+        this.numero = numero;
+        this.dataContrato = data;
+    }
+
     // GETTERS E SETTERS
     public Integer getNumero() {
         return numero;
