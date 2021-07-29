@@ -1,7 +1,7 @@
 package com.application;
 
 import entities.Contrato;
-import entities.Prestacao;
+import Service.Prestacao;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -13,31 +13,39 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
+        List<Contrato> contrato = new ArrayList<>();
+        List<Prestacao> prestacao = new ArrayList<>();
 
         System.out.println();
-        System.out.println("Entre com os dados do contrato");
+        System.out.println("ENTRE COM OS DADOS DO CONTRATO");
 
-        System.out.print("Número: ");
+        System.out.print("# Número: ");
         int numero = sc.nextInt();
 
-        System.out.print("Data (dd/MM/yyyy): ");
+        System.out.print("# Data (dd/MM/yyyy): ");
         sc.nextLine();
         Date dataContrato = sdf.parse(sc.nextLine());
 
-        System.out.print("Valor do contrato: ");
+        System.out.print("# Valor do contrato: ");
         double valorContrato = sc.nextDouble();
 
-        System.out.print("Quantidade de parcelas: ");
+        System.out.print("# Quantidade de parcelas: ");
         double qtdParcelas = sc.nextDouble();
 
-        Contrato cont = new Contrato(numero, dataContrato, valorContrato, new Prestacao(qtdParcelas));
-        Prestacao prest = new Prestacao(dataContrato, qtdParcelas);
-        prest.calcularParcela(valorContrato, qtdParcelas);
-        prest.vencParcelas(dataContrato, qtdParcelas);
+        Prestacao prest = new Prestacao();
+
+        for (int numParc = 1; numParc <= qtdParcelas; numParc++) {
+            contrato.add(new Contrato(numero, dataContrato, valorContrato));
+            prest.calcularParcela(valorContrato, qtdParcelas, numParc);
+            prestacao.add(new Prestacao());
+        }
 
         System.out.println();
         System.out.println("PARCELAS:");
-        System.out.print(prest.parcelamento());
+        for (Prestacao p : prestacao) {
+            System.out.println(p);
+        }
+//        System.out.print(prest.parcelamento());
 
         sc.close();
     }
