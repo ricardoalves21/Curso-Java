@@ -1,5 +1,6 @@
 package entities;
 
+import Service.Prestacao;
 import java.util.Date;
 
 public class Contrato {
