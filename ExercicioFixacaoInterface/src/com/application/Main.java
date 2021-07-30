@@ -1,10 +1,14 @@
 package com.application;
 
+import Service.ServicoContrato;
+import Service.ServicoPaypal;
 import entities.Contrato;
-import Service.Prestacao;
+import entities.Mensalidade;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
 
@@ -13,39 +17,32 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
-        List<Contrato> contrato = new ArrayList<>();
-        List<Prestacao> prestacao = new ArrayList<>();
 
         System.out.println();
         System.out.println("ENTRE COM OS DADOS DO CONTRATO");
 
         System.out.print("# Número: ");
-        int numero = sc.nextInt();
+        Integer numero = sc.nextInt();
 
         System.out.print("# Data (dd/MM/yyyy): ");
-        sc.nextLine();
-        Date dataContrato = sdf.parse(sc.nextLine());
+        Date dataContrato = sdf.parse(sc.next());
 
         System.out.print("# Valor do contrato: ");
-        double valorContrato = sc.nextDouble();
+        Double valorContrato = sc.nextDouble();
+
+        Contrato contrato = new Contrato(numero, dataContrato, valorContrato);  // instanciando o contrato encaminhando os parametros digitados pelo usuário.
 
         System.out.print("# Quantidade de parcelas: ");
-        double qtdParcelas = sc.nextDouble();
+        int qtdParcelas = sc.nextInt();
 
-        Prestacao prest = new Prestacao();
-
-        for (int numParc = 1; numParc <= qtdParcelas; numParc++) {
-            contrato.add(new Contrato(numero, dataContrato, valorContrato));
-            prest.calcularParcela(valorContrato, qtdParcelas, numParc);
-            prestacao.add(new Prestacao());
-        }
+        ServicoContrato servicoContrato =  new ServicoContrato(new ServicoPaypal());  // instanciando o contrato de serviço injetando nele a dependência do serviço de paypal.
+        servicoContrato.processarContrato(contrato, qtdParcelas);
 
         System.out.println();
         System.out.println("PARCELAS:");
-        for (Prestacao p : prestacao) {
-            System.out.println(p);
+        for (Mensalidade e : contrato.getMensalidade()) {
+            System.out.println(e);
         }
-//        System.out.print(prest.parcelamento());
 
         sc.close();
     }
