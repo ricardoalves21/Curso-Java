@@ -35,7 +35,7 @@ public class Main {
         System.out.print("# Quantidade de parcelas: ");
         int qtdParcelas = sc.nextInt();
 
-        ServicoContrato servicoContrato =  new ServicoContrato(new ServicoPaypal());  // instanciando o contrato de serviço injetando nele a dependência do serviço de paypal.
+        ServicoContrato servicoContrato =  new ServicoContrato(new ServicoPaypal());  // instanciando o serviço de contrato e injetando nele a dependência do serviço de paypal.
         servicoContrato.processarContrato(contrato, qtdParcelas);
 
         System.out.println();
