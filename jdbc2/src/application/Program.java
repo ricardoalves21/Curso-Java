@@ -33,11 +33,12 @@ public class Program {
                             + "WHERE id = ? ",
                     Statement.RETURN_GENERATED_KEYS);
 
-            st.setInt(1, 7);
+            st.setInt(1, 10);
             */
 
 
 
+            /*
             st = conn.prepareStatement(
                     "INSERT INTO seller "
                     + "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
@@ -50,15 +51,16 @@ public class Program {
             st.setDate(3, new java.sql.Date(sdf.parse("21/08/1981").getTime()));
             st.setDouble(4, 10000.0);
             st.setInt(5, 4);
-
+            */
 
 
 
             /*
-            st = conn.prepareStatement("INSERT INTO department (Name) VALUES ('D1'), ('D2')",
-                    Statement.RETURN_GENERATED_KEYS);  // executou a query retornou os valores das chaves geradas
-             */
+            st = conn.prepareStatement("DELETE FROM department WHERE id = ?",
+                    Statement.RETURN_GENERATED_KEYS);
 
+            st.setInt(1, 6);
+            */
 
 
             // Bloco de código para registrar as linhas afetadas nas tabelas
@@ -79,8 +81,6 @@ public class Program {
 
         }
         catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         } finally {
             DB.closeStatment(st);  // antes de fechar a conexão é preciso fechar a declaração do sql
