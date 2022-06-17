@@ -18,10 +18,21 @@ public class Program {
         try {
             conn = DB.getConnection();
             st = conn.createStatement();
-            rs = st.executeQuery("Select * from department");
+            rs = st.executeQuery("Select * from seller");
 
             while (rs.next()) {
-                System.out.println(rs.getInt("Id") + ", " + rs.getString("Name"));
+                System.out.println(rs.getInt("Id")
+                        + "| "
+                        + rs.getString("Name")
+                        + "| "
+                        + rs.getString("Email")
+                        + "| "
+                        + rs.getDate("BirthDate")
+                        + "| "
+                        + rs.getDouble("BaseSalary")
+                        + "| "
+                        + rs.getInt("DepartmentId")
+                );
             }
         } catch (SQLException e) {
             e.printStackTrace();
