@@ -67,6 +67,31 @@ public class SellerDaoJDBC implements SellerDao {
 
     @Override
     public void update(Seller obj) {
+
+        PreparedStatement st = null;
+
+        try {
+            st = conn.prepareStatement(
+                    "UPDATE seller "
+                        + "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
+                        + "WHERE Id = ?");
+
+            st.setString(1, obj.getName());
+            st.setString(2, obj.getEmail());
+            st.setDate(3, new java.sql.Date(obj.getBirthDate().getTime())); // importando a biblioteca java.sql.Date e pegando o formato 'getTime()'
+            st.setDouble(4, obj.getBaseSalary());
+            st.setInt(5, obj.getDepartment().getId()); // aqui a partir do getDepartment() é que eu pego o 'id' do departamento
+            st.setInt(6, obj.getId());
+
+            st.executeUpdate();
+        }
+        catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        }
+        finally {
+            DB.closeStatment(st);
+        }
+
     }
 
     @Override
