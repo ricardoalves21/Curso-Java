@@ -81,9 +81,8 @@ public class SellerDaoJDBC implements SellerDao {
             st.setDate(3, new java.sql.Date(obj.getBirthDate().getTime())); // importando a biblioteca java.sql.Date e pegando o formato 'getTime()'
             st.setDouble(4, obj.getBaseSalary());
             st.setInt(5, obj.getDepartment().getId()); // aqui a partir do getDepartment() é que eu pego o 'id' do departamento
-            st.setInt(6, obj.getId());
 
-            st.executeUpdate();
+
         }
         catch (SQLException e) {
             throw new DbException(e.getMessage());
@@ -101,7 +100,7 @@ public class SellerDaoJDBC implements SellerDao {
 
         try {
             st = conn.prepareStatement(
-            "DELETE FROM seller WHERE Id = ?");
+                    "DELETE FROM seller WHERE Id = ?");
 
             st.setInt(1, id);
             st.executeUpdate();
