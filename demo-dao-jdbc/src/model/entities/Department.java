@@ -16,9 +16,10 @@ public class Department implements Serializable {
     private String name;
 
 
-    // CONSTRUTORES
+    // CONSTRUTOR VAZIO
     public Department() {}
 
+    // CONSTRUTOR COM ARGUMENTOS
     public Department(Integer id, String name) {
         this.id = id;
         this.name = name;
@@ -43,7 +44,7 @@ public class Department implements Serializable {
     }
 
 
-    // EQUALS E HASHCODE
+    // EQUALS
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -53,11 +54,11 @@ public class Department implements Serializable {
                 name.equals(that.name);
     }
 
+    // HASHCODE
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
     }
-
 
     // MÉTODO TO STRING
     @Override
