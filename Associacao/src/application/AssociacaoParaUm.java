@@ -17,17 +17,23 @@ public class AssociacaoParaUm {
         aluno1.setMatricula(123);
         aluno1.setDataNascimento(new Date());
         aluno1.setTurma(turma1);
+        turma1.adicionarAluno(aluno1);
 
         Aluno aluno2 = new Aluno();
-        aluno2.setNome("Jé");
+        aluno2.setNome("Zé");
         aluno2.setMatricula(999);
         aluno2.setDataNascimento(new Date());
         aluno2.setTurma(turma1);
+        turma1.adicionarAluno(aluno2);
 
-        System.out.println("Dados do aluno 1");
+        System.out.println("DADOS DO ALUNO");
         System.out.println(aluno1.getNome());
         System.out.println(aluno1.getTurma().getSigla());
-        System.out.println(aluno1.getTurma().getAno());
+
+        System.out.println("ALUNOS DA TURMA");
+        for (int i = 0 ; i < turma1.quantidadeAlunos() ; i++) {
+            System.out.println(turma1.getAluno(i).getNome());
+        }
 
     }
 

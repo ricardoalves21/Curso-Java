@@ -4,12 +4,27 @@ import java.util.ArrayList;
 
 public class Disciplina {
 
+
+    // ATRIBUTOS
     private String nome;
     private int cargaHoraria;
 
-    ArrayList<Professor> professores;
-    ArrayList<Turma> turmas;
 
+
+    // ASSOCIAÇÕES
+    private ArrayList<Professor> professores;
+    private ArrayList<Turma> turmas;
+
+
+
+    // CONSTRUTOR
+    public Disciplina() {
+        professores = new ArrayList<>();
+    }
+
+
+
+    // MÉTODOS ACESSORES
     public String getNome() {
         return nome;
     }
@@ -29,4 +44,24 @@ public class Disciplina {
         }
 
     }
+
+
+
+    // OUTROS MÉTODOS
+    public void adicionaProfessor(Professor professor) {
+        professores.add(professor);
+    }
+
+    public void excluirProfessor(Professor professor) {
+        professores.remove(professor);
+    }
+
+    public int quantidadeProfessor() {
+        return professores.size();
+    }
+
+    public Professor getProfessor(int posicao) {
+        return professores.get(posicao);
+    }
+
 }

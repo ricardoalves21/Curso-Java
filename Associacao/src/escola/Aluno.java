@@ -7,8 +7,12 @@ public class Aluno extends Pessoa {
     // ATRIBUTOS
     private Date dataNascimento;
 
+
+
     // ASSOCIACAO
     private Turma turma;
+
+
 
     // METODOS ACESSORES
     public Date getDataNascimento() {
@@ -26,6 +30,8 @@ public class Aluno extends Pessoa {
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
+
+
 
     // OUTROS METODOS
     void realizarAvaliacao() {}

@@ -2,9 +2,13 @@ package escola;
 
 public class Pessoa {
 
+
+    // ATRIBUTOS
     private String nome;
     private int matricula;
 
+
+    // MÉTODOS ACESSORES
     public String getNome() {
         return nome;
     }
