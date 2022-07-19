@@ -1,10 +1,17 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Categoria {
 
 
     // ATRIBUTOS
     public String nmCategoria;
+
+
+
+    // ASSOCIACAO
+    private ArrayList<Produto> produtos;
 
 
 
