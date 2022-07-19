@@ -16,6 +16,13 @@ public class Funcionario {
 
 
 
+    // CONSTRUTOR
+    public Funcionario() {
+        this.salario = 1000.00;
+    }
+
+
+
     // MÉTODOS ACESSORES
     public String getNome() {
         return nome;
@@ -57,4 +64,16 @@ public class Funcionario {
         this.departamento = departamento;
     }
 
+
+
+    // METODO TOSTRING
+    @Override
+    public String toString() {
+        return "\nCADASTRO DE FUNCIONÁRIO: \n" +
+                "Nome: " + nome + " \n" +
+                "Número do Documento: " + nrDocumento + " \n" +
+                "Funcao: " + funcao +  " \n" +
+                "Salário: " + salario +  " \n" +
+                "Departamento: " + departamento.getNmDepartamento() ;
+    }
 }
