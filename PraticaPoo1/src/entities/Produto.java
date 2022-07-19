@@ -46,4 +46,14 @@ public class Produto {
         this.categoria = categoria;
     }
 
+
+
+    // MÉTODO TO STRING
+    @Override
+    public String toString() {
+        return "\nPRODUTO: " + "\n" +
+               "Descrição do Produto: " + nmProduto + "\n" +
+               "Qtd Estoque: " + qtdEstoque + "\n" +
+               "Categoria: " + categoria.getNmCategoria() ;
+    }
 }
