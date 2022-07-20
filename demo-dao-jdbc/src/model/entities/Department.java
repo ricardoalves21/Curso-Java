@@ -3,21 +3,30 @@ package model.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+/* Esta classe é a matriz responsável por gerar todos os departamentos */
+
 public class Department implements Serializable {
 
+    // SERIALIZAÇÃO
     private static final long serialVersionUID = 1L;
+
+
+    // ATRIBUTOS
     private Integer id;
     private String name;
 
-    public Department() {
 
-    }
+    // CONSTRUTOR VAZIO
+    public Department() {}
 
+    // CONSTRUTOR COM ARGUMENTOS
     public Department(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
+
+    // MÉTODOS ACESSORES
     public Integer getId() {
         return id;
     }
@@ -34,6 +43,8 @@ public class Department implements Serializable {
         this.name = name;
     }
 
+
+    // EQUALS
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -43,11 +54,13 @@ public class Department implements Serializable {
                 name.equals(that.name);
     }
 
+    // HASHCODE
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
     }
 
+    // MÉTODO TO STRING
     @Override
     public String toString() {
         return "Department{" +

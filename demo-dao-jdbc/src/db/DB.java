@@ -5,14 +5,12 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 
+/* Esta classe é responsável por todas as configurações referentes à conexão com o banco de dados  */
+
 public class DB {
-
-
 
     // ATRIBUTOS
     private static Connection conn = null;
-
-
 
     // Método para LER dados de entrada
     private static Properties loadProperties() {
@@ -28,9 +26,7 @@ public class DB {
 
     }
 
-
-
-    // Método para pegar a conexão
+    // Método para PEGAR a conexão
     public static Connection getConnection() {
 
         if (conn == null) {  // Caso a conexão não tenha sido iniciada
@@ -46,9 +42,7 @@ public class DB {
         return conn;  // Retornará a variável 'conn' responsável por estabelecer a conexão
     }
 
-
-
-    // Método para fechar a conexão
+    // Método para FECHAR a conexão
     public static void closeConnection() {
 
         if (conn != null) {  // Se a conexão estiver estabelecida
@@ -62,9 +56,7 @@ public class DB {
 
     }
 
-
-
-    // Método para fechar as declarações de sql (queryes)
+    // Método para FECHAR as DECLARAÇÕES de sql (queryes)
     public static void closeStatment(Statement st) {
 
             if (st != null) {  // Se a variável 'st' estiver em uso
@@ -77,9 +69,7 @@ public class DB {
 
     }
 
-
-
-    // Método para fechar o 'ResultSet'
+    // Método para FECHAR o 'ResultSet'
     public static void closeResultSet(ResultSet rs) {
 
         if (rs != null) {  // Se o resultSet estiver em uso
@@ -91,7 +81,5 @@ public class DB {
         }
 
     }
-
-
 
 }
