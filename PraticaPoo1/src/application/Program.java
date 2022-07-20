@@ -4,6 +4,8 @@ import entities.Categoria;
 import entities.Departamento;
 import entities.Funcionario;
 import entities.Produto;
+
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 
@@ -11,7 +13,7 @@ public class Program {
 
     public static void main(String[] args) {
 
-//        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 //
 //        Departamento departamento1 = new Departamento();
 //        System.out.print("Qual o nome do departamento 1? ");
@@ -39,14 +41,63 @@ public class Program {
 
         Categoria categoria1 = new Categoria();
         categoria1.setNmCategoria("Eletronicos");
+        Categoria categoria2 = new Categoria();
+        categoria1.setNmCategoria("Papelaria");
+        Categoria categoria3 = new Categoria();
+        categoria1.setNmCategoria("Bazar");
 
         Produto produto1 = new Produto();
-        produto1.setNmProduto("Mouse");
-        produto1.setQtdEstoque(10);
-        produto1.setCategoria(categoria1);
-        categoria1.adicionarProduto(produto1);
+        Produto produto2 = new Produto();
+        Produto produto3 = new Produto();
+        Produto produto4 = new Produto();
+        Produto produto5 = new Produto();
+        Produto produto6 = new Produto();
+        Produto produto7 = new Produto();
+        Produto produto8 = new Produto();
+        Produto produto9 = new Produto();
+        Produto produto10 = new Produto();
 
-        System.out.println(categoria1.getProduto(0).getNmProduto());
+        System.out.println("O que deseja fazer?");
+        System.out.println("[C] Cadastrar Produto");
+        System.out.println("[L] Listar Produto");
+        System.out.print("R: ");
+        String R = sc.nextLine();
+
+        if (R.equals("C")) {
+            System.out.println("CADASTRO DE PRODUTOS:");
+            System.out.println("_____________________");
+            System.out.print("Nome do Produto: ");
+            produto1.setNmProduto(sc.nextLine());
+            System.out.print("Quantidade em Estoque: ");
+            produto1.setQtdEstoque(sc.nextInt());
+            System.out.println("Qual Categoria: ");
+            System.out.println("[1] Eletronicos");
+            System.out.println("[2] Papelaria");
+            System.out.println("[3] Bazar");
+            int C = sc.nextInt();
+            if (C == 1) {
+                System.out.print("R: ");
+                produto1.setCategoria(categoria1);
+            }
+            else if (C ==2) {
+                System.out.print("R: ");
+                produto1.setCategoria(categoria2);
+            }
+            else {
+                System.out.print("R: ");
+                produto1.setCategoria(categoria3);
+            }
+
+        }
+
+
+
+//
+//        System.out.println(categoria1.getProduto(0).getNmProduto());
+
+
+
+
 
 //        Produto produto2 = new Produto();
 //        produto2.setNmProduto("Monitor");
