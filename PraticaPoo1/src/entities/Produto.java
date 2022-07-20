@@ -4,7 +4,7 @@ public class Produto {
 
 
     // ATRIBUTOS
-    public String nmProduto;
+    private String nmProduto;
     public int qtdEstoque;
 
 
