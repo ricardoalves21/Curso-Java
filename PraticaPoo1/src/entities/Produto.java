@@ -10,7 +10,7 @@ public class Produto {
 
 
     // ASSOCIAÇÃO
-    Categoria categoria;
+    Categoria categoria = new Categoria();
 
 
 

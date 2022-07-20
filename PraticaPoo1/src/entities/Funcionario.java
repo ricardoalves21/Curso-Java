@@ -12,7 +12,7 @@ public class Funcionario {
 
 
     // ASSOCIAÇÃO
-    Departamento departamento;
+    Departamento departamento = new Departamento();
 
 
 
