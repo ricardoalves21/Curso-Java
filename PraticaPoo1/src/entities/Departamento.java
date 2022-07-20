@@ -11,7 +11,7 @@ public class Departamento {
 
 
     // ASSOCIACAO
-    private ArrayList<Funcionario> funcionarios;
+    private ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
 
 

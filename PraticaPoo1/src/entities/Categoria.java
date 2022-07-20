@@ -11,7 +11,7 @@ public class Categoria {
 
 
     // ASSOCIACAO
-    private ArrayList<Produto> produtos;
+    private ArrayList<Produto> produtos = new ArrayList<>();
 
 
 
@@ -22,6 +22,25 @@ public class Categoria {
 
     public void setNmCategoria(String nmCategoria) {
         this.nmCategoria = nmCategoria;
+    }
+
+
+
+    // OUTROS MÉTODOS
+    public void adicionarProduto(Produto produto) {
+        produtos.add(produto);
+    }
+
+    public void excluirProduto(Produto produto) {
+        produtos.remove(produto);
+    }
+
+    public int quantidadeProdutos() {
+        return produtos.size();
+    }
+
+    public Produto getProduto(int posicao) {
+        return produtos.get(posicao);
     }
 
 }
