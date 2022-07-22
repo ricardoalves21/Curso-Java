@@ -42,9 +42,9 @@ public class Program {
         Categoria categoria1 = new Categoria();
         categoria1.setNmCategoria("Eletronicos");
         Categoria categoria2 = new Categoria();
-        categoria1.setNmCategoria("Papelaria");
+        categoria2.setNmCategoria("Papelaria");
         Categoria categoria3 = new Categoria();
-        categoria1.setNmCategoria("Bazar");
+        categoria3.setNmCategoria("Bazar");
 
         Produto produto1 = new Produto();
         Produto produto2 = new Produto();
@@ -57,6 +57,8 @@ public class Program {
         Produto produto9 = new Produto();
         Produto produto10 = new Produto();
 
+        System.out.println("\nINICIO");
+        System.out.println("--------------------");
         System.out.println("O que deseja fazer?");
         System.out.println("[C] Cadastrar Produto");
         System.out.println("[L] Listar Produto");
@@ -64,40 +66,73 @@ public class Program {
         String R = sc.nextLine();
 
         if (R.equals("C")) {
-            System.out.println("CADASTRO DE PRODUTOS:");
+            System.out.println("\nCADASTRO DE PRODUTOS:");
             System.out.println("_____________________");
             System.out.print("Nome do Produto: ");
             produto1.setNmProduto(sc.nextLine());
             System.out.print("Quantidade em Estoque: ");
             produto1.setQtdEstoque(sc.nextInt());
-            System.out.println("Qual Categoria: ");
+            System.out.println("\nQUAL CATEGORIA: ");
+            System.out.println("_____________________");
             System.out.println("[1] Eletronicos");
             System.out.println("[2] Papelaria");
             System.out.println("[3] Bazar");
+            System.out.print("R: ");
             int C = sc.nextInt();
+
             if (C == 1) {
-                System.out.print("R: ");
                 produto1.setCategoria(categoria1);
+                categoria1.adicionarProduto(produto1);
             }
             else if (C ==2) {
-                System.out.print("R: ");
                 produto1.setCategoria(categoria2);
+                categoria2.adicionarProduto(produto1);
             }
             else {
-                System.out.print("R: ");
                 produto1.setCategoria(categoria3);
+                categoria3.adicionarProduto(produto1);
             }
+
+            System.out.print("\nDeseja cadastrar outro produto? ");
+            String continuarCadastroProduto = sc.nextLine();
+
+//            while (continuarCadastroProduto.equals("S")) {
+//                System.out.println("\nCADASTRO DE PRODUTOS:");
+//                System.out.println("_____________________");
+//                System.out.print("Nome do Produto: ");
+//                produto1.setNmProduto(sc.nextLine());
+//                System.out.print("Quantidade em Estoque: ");
+//                produto1.setQtdEstoque(sc.nextInt());
+//                System.out.println("\nQUAL CATEGORIA: ");
+//                System.out.println("_____________________");
+//                System.out.println("[1] Eletronicos");
+//                System.out.println("[2] Papelaria");
+//                System.out.println("[3] Bazar");
+//                System.out.print("R: ");
+//                int C = sc.nextInt();
+//
+//                if (C == 1) {
+//                    produto1.setCategoria(categoria1);
+//                    categoria1.adicionarProduto(produto1);
+//                }
+//                else if (C ==2) {
+//                    produto1.setCategoria(categoria2);
+//                    categoria2.adicionarProduto(produto1);
+//                }
+//                else {
+//                    produto1.setCategoria(categoria3);
+//                    categoria3.adicionarProduto(produto1);
+//                }
+//
+//            }
 
         }
 
 
 
-//
+
+
 //        System.out.println(categoria1.getProduto(0).getNmProduto());
-
-
-
-
 
 //        Produto produto2 = new Produto();
 //        produto2.setNmProduto("Monitor");
