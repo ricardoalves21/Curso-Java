@@ -8,8 +8,6 @@ public class Categoria {
     // ATRIBUTOS
     public String nmCategoria;
 
-
-
     // ASSOCIACAO
     private ArrayList<Produto> produtos = new ArrayList<>();
 

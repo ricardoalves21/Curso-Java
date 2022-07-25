@@ -9,8 +9,6 @@ public class Produto {
     private String nmProduto;
     public int qtdEstoque;
 
-
-
     // ASSOCIAÇÃO
     Categoria categoria = new Categoria();
 
@@ -49,7 +47,7 @@ public class Produto {
     }
 
     // OUTROS METODOS
-    public int cadastrarProduto() {
+    public void cadastrarProduto(Produto prod) {
 
         Scanner sc = new Scanner(System.in);
 
@@ -57,10 +55,10 @@ public class Produto {
         System.out.println("_____________________");
 
         System.out.print("Nome do Produto: ");
-        setNmProduto(sc.nextLine());
+        prod.setNmProduto(sc.nextLine());
 
         System.out.print("Quantidade em Estoque: ");
-        setQtdEstoque(sc.nextInt());
+        prod.setQtdEstoque(sc.nextInt());
 
         System.out.println("\nQUAL CATEGORIA: ");
         System.out.println("_____________________");
@@ -71,18 +69,23 @@ public class Produto {
         System.out.print("R: ");
         int cat = sc.nextInt();
 
-//        if (cat == 1) {
-//            setCategoria(categoria1);
-//            Categoria.adicionarProduto(produto1);
-//        } else if (cat == 2) {
-//            setCategoria(categoria2);
-//            Categoria.adicionarProduto(produto1);
-//        } else {
-//            setCategoria(categoria3);
-//            Categoria.adicionarProduto(produto1);
-//        }
+        if (cat == 1) {
+            Categoria categoria1 = new Categoria();
+            categoria1.setNmCategoria("Eletronicos");
+            prod.setCategoria(categoria1);
+            categoria1.adicionarProduto(prod);
+        } else if (cat == 2) {
+            Categoria categoria2 = new Categoria();
+            categoria2.setNmCategoria("Papelaria");
+            prod.setCategoria(categoria2);
+            categoria2.adicionarProduto(prod);
+        } else {
+            Categoria categoria3 = new Categoria();
+            categoria3.setNmCategoria("Bazar");
+            prod.setCategoria(categoria3);
+            categoria3.adicionarProduto(prod);
+        }
 
-        return cat;
     }
 
 
