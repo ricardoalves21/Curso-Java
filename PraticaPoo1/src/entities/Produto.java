@@ -2,7 +2,7 @@ package entities;
 
 import java.util.Scanner;
 
-public class Produto {
+public class Produto implements Produt {
 
 
     // ATRIBUTOS
@@ -22,31 +22,38 @@ public class Produto {
 
 
     // MÉTODOS ACESSORES
+    @Override
     public String getNmProduto() {
         return nmProduto;
     }
 
+    @Override
     public void setNmProduto(String nmProduto) {
         this.nmProduto = nmProduto;
     }
 
+    @Override
     public int getQtdEstoque() {
         return qtdEstoque;
     }
 
+    @Override
     public void setQtdEstoque(int qtdEstoque) {
         this.qtdEstoque = qtdEstoque;
     }
 
+    @Override
     public Categoria getCategoria() {
         return categoria;
     }
 
+    @Override
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
     // OUTROS METODOS
+    @Override
     public void cadastrarProduto(Produto prod) {
 
         Scanner sc = new Scanner(System.in);
@@ -92,10 +99,10 @@ public class Produto {
 
     // MÉTODO TO STRING
     @Override
-    public String toString() {
-        return "\nPRODUTO: " + "\n" +
-               "Descrição do Produto: " + nmProduto + "\n" +
-               "Qtd Estoque: " + qtdEstoque + "\n" +
-               "Categoria: " + categoria.getNmCategoria() ;
+    public String toString(Produto produt) {
+        return "\nPRODUTOS CADASTRADOS: " + "\n" +
+               "Descrição do Produto: " + produt.getNmProduto() + "\n" +
+               "Qtd Estoque: " + produt.getQtdEstoque() + "\n" +
+               "Categoria: " + produt.getCategoria().nmCategoria ;
     }
 }
