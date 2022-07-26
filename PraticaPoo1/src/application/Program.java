@@ -14,37 +14,32 @@ public class Program {
 
         Scanner sc = new Scanner(System.in);
         Produto produto1 = new Produto();
+        String resp = "N";
 
-        System.out.println("\nINICIO");
-        System.out.println("--------------------");
-        System.out.println("O que deseja fazer?");
-        System.out.println("[C] Cadastrar Produto");
-        System.out.println("[L] Listar Produto");
-        System.out.print("R: ");
-        String R = sc.nextLine();
-
-        if (R.equals("C")) {
+        do {
             produto1.cadastrarProduto(produto1);
 
-            System.out.println("Continuar cadastrando? ");
+            System.out.println("\nContinuar cadastrando? ");
             System.out.println("[S] Sim");
             System.out.println("[N] Não");
             System.out.print("R: ");
-            String resp = sc.nextLine();
+            resp = sc.nextLine();
 
-            while (resp.equals("S")) {
-                produto1.cadastrarProduto(produto1);
-            }
+        }while (resp.equals("S"));
 
-        }
-        else if (R.equals("L")) {
+        System.out.println("\nDeseja listar os produtos cadastrados?");
+        System.out.println("[S] Sim");
+        System.out.println("[N] Não");
+        System.out.print("R: ");
+        String R = sc.nextLine();
+
+        if (R.equals("S")) {
             if (produto1.getQtdEstoque() == 0) {
                 System.out.println("Não há nenhum produto cadastrado no banco de dados");
             }
             else {
-                produto1.toString();
+                System.out.println(produto1.getCategoria().toString());;
             }
         }
-
     }
 }

@@ -41,4 +41,15 @@ public class Categoria {
         return produtos.get(posicao);
     }
 
+
+
+    // MÉTODO TOSTRING
+    @Override
+    public String toString() {
+        return "\nLISTA DE PRODUTOS:" +
+               "\n-------------------" +
+               "\nCategoria: " + nmCategoria +
+               "\nProduto: " + produtos;
+    }
+
 }
