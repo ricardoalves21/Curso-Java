@@ -1,23 +1,23 @@
 package entities;
 
-import java.util.List;
-import java.util.Scanner;
-
 public class Produto {
 
 
     // ATRIBUTOS
     private String nmProduto;
-    public int qtdEstoque;
-
-    // ASSOCIAÇÃO
-    Categoria categoria = new Categoria();
+    private int qtdEstoque;
+    private String categoria;
 
 
 
-    // CONSTRUTOR
+    // CONSTRUTORES
     public Produto() {
         this.qtdEstoque = 0;
+    }
+    public Produto(String nmProduto, int qtdEstoque, String categoria) {
+        this.nmProduto = nmProduto;
+        this.qtdEstoque = qtdEstoque;
+        this.categoria = categoria;
     }
 
 
@@ -39,12 +39,7 @@ public class Produto {
         this.qtdEstoque = qtdEstoque;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
+    public String getCategoria() { return categoria; }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
+    public void setCategoria(String categoria) { this.categoria = categoria; }
 }
