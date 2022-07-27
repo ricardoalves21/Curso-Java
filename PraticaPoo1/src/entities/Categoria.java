@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Categoria {
 
@@ -9,7 +10,7 @@ public class Categoria {
     public String nmCategoria;
 
     // ASSOCIACAO
-    private ArrayList<Produto> produtos = new ArrayList<>();
+    private List<Produto> produtos = new ArrayList<>();
 
 
 
@@ -39,17 +40,6 @@ public class Categoria {
 
     public Produto getProduto(int posicao) {
         return produtos.get(posicao);
-    }
-
-
-
-    // MÉTODO TOSTRING
-    @Override
-    public String toString() {
-        return "\nLISTA DE PRODUTOS:" +
-               "\n-------------------" +
-               "\nCategoria: " + nmCategoria +
-               "\nProduto: " + produtos;
     }
 
 }
