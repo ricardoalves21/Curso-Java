@@ -5,6 +5,8 @@ import entities.Departamento;
 import entities.Funcionario;
 import entities.Produto;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -41,5 +43,20 @@ public class Program {
                 System.out.println(produto1.getCategoria().toString());;
             }
         }
+
+        System.out.println("\nLISTAGEM DE PRODUTOS");
+
+        for (int i = 0 ; i < produto1.getCategoria().quantidadeProdutos() ; i++) {
+            System.out.println("------------------------------------------");
+            System.out.print("| ");
+            System.out.print(produto1.getCategoria().nmCategoria);
+            System.out.print(" | ");
+            System.out.print(produto1.getNmProduto());
+            System.out.print(" | ");
+            System.out.print(produto1.getQtdEstoque());
+            System.out.println();
+            System.out.println("------------------------------------------");
+        }
+
     }
 }

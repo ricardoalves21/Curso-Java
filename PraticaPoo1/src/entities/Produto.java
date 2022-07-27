@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Produto implements Produt {
@@ -57,6 +58,7 @@ public class Produto implements Produt {
     public void cadastrarProduto(Produto prod) {
 
         Scanner sc = new Scanner(System.in);
+
 
         System.out.println("\nCADASTRO DE PRODUTOS:");
         System.out.println("_____________________");
