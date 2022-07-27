@@ -17,7 +17,21 @@ public class Program {
 
         do {
 
-            // aqui código para cadastrar em lista
+            System.out.println("\nCADASTRO DE PRODUTOS:");
+            System.out.println("_____________________");
+
+            System.out.print("Nome do Produto: ");
+            String nome = sc.nextLine();
+
+            System.out.print("Quantidade em Estoque: ");
+            int qtdProd = sc.nextInt();
+
+            System.out.print("Qual categoria: ");
+            sc.nextLine();
+            String cat = sc.nextLine();
+
+            Produto prod = new Produto(nome, qtdProd, cat);
+            list.add(prod);
 
             System.out.println("\nContinuar cadastrando? ");
             System.out.println("[S] Sim");
@@ -27,35 +41,15 @@ public class Program {
 
         }while (resp.equals("S"));
 
+        for (int i = 0 ; i < list.size() ; i++) {
+            System.out.println();
+            System.out.println(list.get(i).getNmProduto());
+            System.out.println(list.get(i).getQtdEstoque());
+            System.out.println(list.get(i).getCategoria());
+        }
 
-        System.out.println("\nDeseja listar os produtos cadastrados?");
-        System.out.println("[S] Sim");
-        System.out.println("[N] Não");
-        System.out.print("R: ");
-        String R = sc.nextLine();
-
-//        if (R.equals("S")) {
-//            if (produto1.getQtdEstoque() == 0) {
-//                System.out.println("Não há nenhum produto cadastrado no banco de dados");
-//            }
-//            else {
-//                System.out.println(produto1.getCategoria().toString());;
-//            }
-//        }
-
-        System.out.println("\nLISTAGEM DE PRODUTOS");
-
-//        for (int i = 0 ; i < produto1.getCategoria().quantidadeProdutos() ; i++) {
-//            System.out.println("------------------------------------------");
-//            System.out.print("| ");
-//            System.out.print(produto1.getCategoria().nmCategoria);
-//            System.out.print(" | ");
-//            System.out.print(produto1.getNmProduto());
-//            System.out.print(" | ");
-//            System.out.print(produto1.getQtdEstoque());
-//            System.out.println();
-//            System.out.println("------------------------------------------");
-//        }
+        sc.close();
 
     }
+
 }
