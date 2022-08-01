@@ -14,6 +14,7 @@ public class Produto {
     public Produto() {
         this.qtdEstoque = 0;
     }
+
     public Produto(String nmProduto, int qtdEstoque, String categoria) {
         this.nmProduto = nmProduto;
         this.qtdEstoque = qtdEstoque;
@@ -42,4 +43,10 @@ public class Produto {
     public String getCategoria() { return categoria; }
 
     public void setCategoria(String categoria) { this.categoria = categoria; }
+
+    public void somaEstoque(String nmProduto, String categoria, int qtdEstoque) {
+        if (this.categoria == categoria && this.nmProduto == nmProduto) {
+            this.qtdEstoque += qtdEstoque;
+        }
+    }
 }

@@ -3,6 +3,7 @@ package application;
 import entities.Produto;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -32,6 +33,7 @@ public class Program {
 
             Produto prod = new Produto(nome, qtdProd, cat);
             list.add(prod);
+            prod.somaEstoque(nome, cat, qtdProd);
 
             System.out.println("\nContinuar cadastrando? ");
             System.out.println("[S] Sim");
@@ -41,12 +43,18 @@ public class Program {
 
         }while (resp.equals("S"));
 
+        System.out.println();
+        System.out.println("LISTAGEM DE PRODUTOS");
+
         for (int i = 0 ; i < list.size() ; i++) {
-            System.out.println();
-            System.out.println(list.get(i).getNmProduto());
-            System.out.println(list.get(i).getQtdEstoque());
-            System.out.println(list.get(i).getCategoria());
+            System.out.println("----------------------------------------");
+            System.out.println(" | " + list.get(i).getNmProduto() + " | " + list.get(i).getQtdEstoque() + " | " + list.get(i).getCategoria() + " | ");
         }
+
+        System.out.println("----------------------------------------");
+
+        // System.out.println(" | " + list.get(i).getNmProduto() + " | " + list.get(i).getQtdEstoque() + " | " + list.get(i).getCategoria() + " | ");
+
 
         sc.close();
 
