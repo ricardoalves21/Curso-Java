@@ -23,6 +23,7 @@ public class Produto {
 
 
 
+
     // MÉTODOS ACESSORES
     public String getNmProduto() {
         return nmProduto;
@@ -44,9 +45,10 @@ public class Produto {
 
     public void setCategoria(String categoria) { this.categoria = categoria; }
 
-    public void somaEstoque(String nmProduto, String categoria, int qtdEstoque) {
+    public void somaEstoque(String nmProduto, int qtdEstoque, String categoria) {
         if (this.categoria == categoria && this.nmProduto == nmProduto) {
             this.qtdEstoque += qtdEstoque;
         }
     }
+
 }
