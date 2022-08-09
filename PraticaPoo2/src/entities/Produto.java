@@ -43,11 +43,13 @@ public class Produto {
 
     public void setCategoria(String categoria) { this.categoria = categoria; }
 
+
+    // OUTROS MÉTODOS
     public void adicionarProdutos(Produto prod) {
         list.add(prod);
     }
 
-    public int somarProduto(String prodPesq) {
+    public int somaPorProduto(String prodPesq) {
 
         int sum = 0;
 
@@ -56,6 +58,7 @@ public class Produto {
                 sum += list.get(i).getQtdEstoque();
             }
         }
+
         return sum;
 
     }
