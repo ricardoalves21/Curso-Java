@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Produto {
 
 
@@ -8,6 +11,7 @@ public class Produto {
     private int qtdEstoque;
     private String categoria;
 
+    List<Produto> list = new ArrayList<>();
 
 
     // CONSTRUTORES
@@ -22,20 +26,14 @@ public class Produto {
     }
 
 
-
-
     // MÉTODOS ACESSORES
-    public String getNmProduto() {
-        return nmProduto;
-    }
+    public String getNmProduto() { return nmProduto; }
 
     public void setNmProduto(String nmProduto) {
         this.nmProduto = nmProduto;
     }
 
-    public int getQtdEstoque() {
-        return qtdEstoque;
-    }
+    public int getQtdEstoque() { return qtdEstoque; }
 
     public void setQtdEstoque(int qtdEstoque) {
         this.qtdEstoque = qtdEstoque;
@@ -45,10 +43,21 @@ public class Produto {
 
     public void setCategoria(String categoria) { this.categoria = categoria; }
 
-    public void somaEstoque(String nmProduto, int qtdEstoque, String categoria) {
-        if (this.categoria == categoria && this.nmProduto == nmProduto) {
-            this.qtdEstoque += qtdEstoque;
+    public void adicionarProdutos(Produto prod) {
+        list.add(prod);
+    }
+
+    public int somarProduto(String prodPesq) {
+
+        int sum = 0;
+
+        for (int i = 0 ; i < list.size() ; i++) {
+            if (list.get(i).getNmProduto().equals(prodPesq)) {
+                sum += list.get(i).getQtdEstoque();
+            }
         }
+        return sum;
+
     }
 
 }
