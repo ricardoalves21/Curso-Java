@@ -3,7 +3,6 @@ package application;
 import entities.Produto;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,8 +12,8 @@ public class Program {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        List<Produto> list = new ArrayList<>();  // criando a lista com o nome 'list'
         String resp = "N";
+        List<Produto> listProd = new ArrayList<>();
 
         do {
 
@@ -32,8 +31,7 @@ public class Program {
             String cat = sc.nextLine();  // variavel que recebera a categoria do produto
 
             Produto prod = new Produto(nome, qtdProd, cat);  // objeto que guardara os valores atribuidos ao produto (temporario)
-            list.add(prod);  // lista que guardara todos os produtos (permanente)
-
+            listProd.add(prod);
 
             System.out.println("\nContinuar cadastrando? ");
             System.out.println("[S] Sim");
@@ -41,30 +39,22 @@ public class Program {
             System.out.print("R: ");
             resp = sc.nextLine();
 
-        }while (resp.equals("S"));
+            if (resp.equals("N")){
+                System.out.println();
+                System.out.print("Quer somar o estoque de qual produto? ");
+                String produtoSomar = sc.nextLine();
 
-        System.out.println();
-        System.out.println("LISTAGEM DE PRODUTOS");
-        System.out.println("----------------------------------------");
+                for (int i = 0 ; i < listProd.size() ; i++) {
+                    prod.adicionarProdutos(listProd.get(i));
+                }
 
-        System.out.println();
-        System.out.println("TOTAL DO PRODUTO 1");
-        System.out.println("----------------------------------------");
-
-        int sum = 0;
-
-        for (int i = 0 ; i < list.size() ; i++) {
-            if (list.get(i).getNmProduto().equals(list.get(0).getNmProduto())) {
-                sum += list.get(0).getQtdEstoque();
+                System.out.println();
+                System.out.println("LISTAGEM DE PRODUTOS");
+                System.out.println("----------------------------------------");
+                System.out.println("Produto: " + produtoSomar + "   |   Estoque: " + prod.somarProduto(produtoSomar));
             }
-        }
 
-        System.out.println("Produto: " + list.get(0).getNmProduto() + "   |   Estoque: " + sum);
-
+        }while (resp.equals("S"));
         sc.close();
-
-
-        //System.out.println(" | " + item.getNmProduto() + " | " + item.getQtdEstoque() + " | " + item.getCategoria() + " | ");
-
     }
 }
